@@ -94,6 +94,8 @@ These users and machines will be used for logon activity, privilege simulations,
 - **Splunk UF**: Installed on `Win10-1`
 - **Splunk Web**: Accessed locally for event log analysis
 
+- ---
+
 ### 📷 Splunk Interface
 
 ![Splunk UI](screenshots/splunk-ui.png)
