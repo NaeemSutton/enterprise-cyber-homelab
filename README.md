@@ -58,6 +58,33 @@ This homelab simulates a small enterprise network using VirtualBox VMs. It inclu
 - Custom domain users:
   - One on `Win10-1`
   - One on `Win10-2`
+ 
+---
+
+## 🖥️ Active Directory Overview (Screenshots)
+
+### 🧩 Domain-Joined Computers
+
+![Domain Computers](screenshots/ad-computers.png)
+
+- `ECORP-JAY` and `WRK-JAY` are joined to the `ecorp.local` domain
+- These represent your Win10 lab endpoints
+
+---
+
+### 👤 Domain Users
+
+![Domain Users](screenshots/ad-users.png)
+
+- Custom users created in AD:
+  - `jay sutton`
+  - `Philip Price`
+  - `SQL Service`
+  - `Terry Colby`
+- Descriptions and passwords configured for lab testing
+
+These users and machines will be used for logon activity, privilege simulations, and domain-based attack scenarios in future exercises.
+
 
 ---
 
