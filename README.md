@@ -28,6 +28,28 @@ This homelab simulates a small enterprise network using VirtualBox VMs. It inclu
 
 ---
 
+## 🔱 pfSense Firewall Rules
+
+### 🔷 ECORP2 (Kali network)
+
+![ECORP2 Rules](screenshots/pfsense-ecorp2-rules.png)
+
+- Allows full outbound access from Kali
+- Blocks access to WAN
+- Includes anti-lockout rule for pfSense access
+
+---
+
+### 🔷 ECORP (Windows network)
+
+![ECORP Rules](screenshots/pfsense-ecorp-rules.png)
+
+- Allows communication within ECORP subnet
+- Explicit allow to Kali (10.0.3.2) for attack simulations
+- Allows outbound access to non-private IPs
+- Default deny rule at the bottom
+
+
 ## 🔐 Active Directory Setup
 
 - Domain: `ecorp.local`
