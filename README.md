@@ -88,15 +88,29 @@ These users and machines will be used for logon activity, privilege simulations,
 
 ---
 
-## 🔎 Logging & Detection
+## 🔍 Logging & Detection
 
 - **Sysmon**: Logs process creation, network connections, etc.
 - **Splunk UF**: Installed on `Win10-1`
 - **Splunk Web**: Accessed locally for event log analysis
-- Collected logs:
-  - Sysmon logs
-  - PowerShell activity
-  - Windows Security log (logon events, failures, etc.)
+
+### 📷 Splunk Interface
+
+![Splunk UI](screenshots/splunk-ui.png)
+
+- Splunk is configured with several add-ons:
+  - Microsoft Cloud Services
+  - Palo Alto Networks
+  - Unix and Linux
+- Logs searchable through the "Search & Reporting" app
+- Future plans include building detection dashboards and log correlation
+
+---
+
+Collected logs:
+- Sysmon logs
+- PowerShell activity
+- Windows Security log (logon events, failures, etc.)
 
 ---
 
