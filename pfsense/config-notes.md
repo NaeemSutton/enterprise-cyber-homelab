@@ -2,10 +2,11 @@
 
 ## 🌐 Interface Mapping
 
-| Interface | Label     | Subnet       | Notes                        |
-|-----------|-----------|--------------|------------------------------|
+| Interface | Label     | Subnet       | Notes                                       |
+|-----------|-----------|--------------|---------------------------------------------|
 | `opt1`    | ECorp     | 10.0.1.0/24  | Internal network (Windows VMs + Metasploitable) |
-| `LAN`     | ECorp2    | 10.0.3.0/24  | Attacker network (Kali Linux) |
+| `LAN`     | ECorp2    | 10.0.3.0/24  | Attacker network (Kali Linux)              |
+| `WAN`     | WAN       | External     | Simulates internet/WAN                      |
 
 ---
 
@@ -20,8 +21,6 @@
 | 3 | ✅ Allow | ECorp subnets | !RFC1918       | Allows internet traffic (non-private IPs)   |
 | 4 | ❌ Block | ECorp subnets | *             | Blocks all other traffic                    |
 
-> 📌 These rules prioritize internal comms, allow limited external reach, and enforce a default deny policy.
-
 ---
 
 ### 🔷 ECorp2 (LAN)
@@ -33,23 +32,28 @@
 | 3 | ✅ Allow | ECorp2 subnets  | *                | Default allow LAN (IPv4)                   |
 | 4 | ✅ Allow | ECorp2 subnets  | *                | Default allow LAN (IPv6)                   |
 
-> 📌 These rules allow full outbound traffic from Kali and protect WAN from direct attacker access.
+---
+
+### 🌐 WAN
+
+| # | Action | Source                       | Destination | Description             |
+|--:|--------|-------------------------------|-------------|-------------------------|
+| 1 | ❌ Block | Reserved / Not Assigned by IANA | *           | Block bogon networks    |
+
+> 📌 No pass rules on WAN — inbound traffic is blocked by default for security.
 
 ---
 
 ## 🔐 Security Notes
 
-- **Anti-lockout rule** is enabled on ECorp2 to avoid admin lockout.
-- Last rule on ECorp blocks all other traffic for strict segmentation.
-- Communication between attacker and victim subnets is controlled by explicit allow to Kali’s IP.
+- Anti-lockout is enabled on ECorp2 to avoid losing admin access
+- Traffic is strictly segmented — attacker access is controlled
+- WAN is locked down with bogon filtering and no open inbound rules
 
 ---
 
 ## 🧠 Lessons Learned
 
-- pfSense rule order matters — top rules take precedence.
-- Use explicit IPs for attacker machines to tightly control access.
-- Anti-lockout rule is critical when locking down subnets.
-
----
-
+- pfSense rule order is critical — top-to-bottom enforcement
+- WAN should default to deny unless absolutely needed
+- Use firewall aliases for clarity and future scalability
