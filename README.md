@@ -129,4 +129,4 @@ Collected logs:
 
 ## 🙏 Credits
 
-This lab setup was inspired by content from [The Complete Hands-On Cybersecurity Analyst Course](https://www.udemy.com/course/the-complete-hands-on-cybersecurity-analyst-course/learn/lecture/45827613#overview) on Udemy. Full credit to the creators for their excellent training materials.
+This lab setup was inspired by content from [The Complete Hands-On Cybersecurity Analyst Course](https://www.udemy.com/course/the-complete-hands-on-cybersecurity-analyst-course) on Udemy. Full credit to the creators for their excellent training materials.
