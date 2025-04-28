@@ -126,7 +126,6 @@ Collected logs:
 
 ---
 
----
 
 ## 🙏 Credits
 
